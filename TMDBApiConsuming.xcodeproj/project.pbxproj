@@ -13,10 +13,10 @@
 		B4C641BD268E3EEA00526ED3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4C641BC268E3EEA00526ED3 /* Assets.xcassets */; };
 		B4C641C0268E3EEA00526ED3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4C641BE268E3EEA00526ED3 /* LaunchScreen.storyboard */; };
 		B4C641C8268E43A300526ED3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C641C7268E43A300526ED3 /* MainViewController.swift */; };
-		B4C641CB268E449E00526ED3 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C641CA268E449E00526ED3 /* MainTableViewCell.swift */; };
 		B4C641CE268E44C900526ED3 /* TMDBApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C641CD268E44C900526ED3 /* TMDBApi.swift */; };
 		B4C641D0268E48F900526ED3 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C641CF268E48F900526ED3 /* MovieModel.swift */; };
 		B4C641D2268E7C0700526ED3 /* TMDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C641D1268E7C0700526ED3 /* TMDBService.swift */; };
+		B4C641D7268E8BCC00526ED3 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C641D6268E8BCC00526ED3 /* MainTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,10 +28,10 @@
 		B4C641BF268E3EEA00526ED3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B4C641C1268E3EEA00526ED3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4C641C7268E43A300526ED3 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		B4C641CA268E449E00526ED3 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		B4C641CD268E44C900526ED3 /* TMDBApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBApi.swift; sourceTree = "<group>"; };
 		B4C641CF268E48F900526ED3 /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 		B4C641D1268E7C0700526ED3 /* TMDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBService.swift; sourceTree = "<group>"; };
+		B4C641D6268E8BCC00526ED3 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +81,7 @@
 			children = (
 				B4C641B9268E3EE700526ED3 /* Main.storyboard */,
 				B4C641C7268E43A300526ED3 /* MainViewController.swift */,
-				B4C641CA268E449E00526ED3 /* MainTableViewCell.swift */,
+				B4C641D6268E8BCC00526ED3 /* MainTableViewCell.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -176,8 +176,8 @@
 				B4C641D0268E48F900526ED3 /* MovieModel.swift in Sources */,
 				B4C641B4268E3EE700526ED3 /* AppDelegate.swift in Sources */,
 				B4C641B6268E3EE700526ED3 /* SceneDelegate.swift in Sources */,
+				B4C641D7268E8BCC00526ED3 /* MainTableViewCell.swift in Sources */,
 				B4C641C8268E43A300526ED3 /* MainViewController.swift in Sources */,
-				B4C641CB268E449E00526ED3 /* MainTableViewCell.swift in Sources */,
 				B4C641D2268E7C0700526ED3 /* TMDBService.swift in Sources */,
 				B4C641CE268E44C900526ED3 /* TMDBApi.swift in Sources */,
 			);
