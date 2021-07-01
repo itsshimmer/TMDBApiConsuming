@@ -8,6 +8,8 @@
 import UIKit
 
 class MainViewController: UIViewController {
+    
+    var popularMovies: [Movie] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,13 +22,19 @@ class MainViewController: UIViewController {
         navigationItem.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
         
         // Search bar
-        
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.placeholder = "Search"
         self.navigationItem.searchController = searchController
         self.navigationItem.hidesSearchBarWhenScrolling = false
+        
+        // Fetches data from the API to compose the screen
+        let api: TMDBAPI = TMDBAPI()
+        api.getPopularMovies { popularMovies in
+            self.popularMovies = popularMovies
+            print(popularMovies)
+        }
+        
     }
-    
 
     /*
     // MARK: - Navigation
