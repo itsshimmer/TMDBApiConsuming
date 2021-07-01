@@ -16,6 +16,7 @@
 		B4C641CB268E449E00526ED3 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C641CA268E449E00526ED3 /* MainTableViewCell.swift */; };
 		B4C641CE268E44C900526ED3 /* TMDBApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C641CD268E44C900526ED3 /* TMDBApi.swift */; };
 		B4C641D0268E48F900526ED3 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C641CF268E48F900526ED3 /* MovieModel.swift */; };
+		B4C641D2268E7C0700526ED3 /* TMDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C641D1268E7C0700526ED3 /* TMDBService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		B4C641CA268E449E00526ED3 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		B4C641CD268E44C900526ED3 /* TMDBApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBApi.swift; sourceTree = "<group>"; };
 		B4C641CF268E48F900526ED3 /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
+		B4C641D1268E7C0700526ED3 /* TMDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +64,8 @@
 		B4C641B2268E3EE700526ED3 /* TMDBApiConsuming */ = {
 			isa = PBXGroup;
 			children = (
-				B4C641CC268E44B900526ED3 /* API */,
+				B4C641D3268E7EC300526ED3 /* Models */,
+				B4C641CC268E44B900526ED3 /* TMDB */,
 				B4C641C9268E43A700526ED3 /* Main */,
 				B4C641B3268E3EE700526ED3 /* AppDelegate.swift */,
 				B4C641B5268E3EE700526ED3 /* SceneDelegate.swift */,
@@ -83,13 +86,21 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		B4C641CC268E44B900526ED3 /* API */ = {
+		B4C641CC268E44B900526ED3 /* TMDB */ = {
 			isa = PBXGroup;
 			children = (
 				B4C641CD268E44C900526ED3 /* TMDBApi.swift */,
+				B4C641D1268E7C0700526ED3 /* TMDBService.swift */,
+			);
+			path = TMDB;
+			sourceTree = "<group>";
+		};
+		B4C641D3268E7EC300526ED3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
 				B4C641CF268E48F900526ED3 /* MovieModel.swift */,
 			);
-			path = API;
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,6 +178,7 @@
 				B4C641B6268E3EE700526ED3 /* SceneDelegate.swift in Sources */,
 				B4C641C8268E43A300526ED3 /* MainViewController.swift in Sources */,
 				B4C641CB268E449E00526ED3 /* MainTableViewCell.swift in Sources */,
+				B4C641D2268E7C0700526ED3 /* TMDBService.swift in Sources */,
 				B4C641CE268E44C900526ED3 /* TMDBApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
