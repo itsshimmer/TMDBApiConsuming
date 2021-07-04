@@ -31,21 +31,21 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="W1f-Co-2d8">
+                                <rect key="frame" x="190" y="105" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Movies" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="always" id="0te-oR-Sk6"/>
                     <connections>
-                        <outlet property="activityIndicator" destination="vMM-1p-zUe" id="mpT-00-IhN"/>
+                        <outlet property="activityIndicator" destination="W1f-Co-2d8" id="mMO-e1-2U3"/>
                         <outlet property="tableView" destination="5ir-vW-3xk" id="ARt-k3-U88"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" id="vMM-1p-zUe">
-                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </activityIndicatorView>
             </objects>
             <point key="canvasLocation" x="1060" y="114.45497630331754"/>
         </scene>
