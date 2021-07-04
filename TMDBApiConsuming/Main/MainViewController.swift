@@ -79,7 +79,7 @@ extension MainViewController: UITableViewDataSource {
         
         cell.textLabel?.text = movie.original_title
         cell.detailTextLabel?.text = "\(movie.id)"
-        print("\(indexPath):\(cell)")
+        
         return cell
     }
     
