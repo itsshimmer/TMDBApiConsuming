@@ -10,7 +10,7 @@ import UIKit
 class MainViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var activityIndicator: UITableView!
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
     let tmdbService: TMDBService = TMDBService()
     var popularMovies: [Movie] = [] { //
