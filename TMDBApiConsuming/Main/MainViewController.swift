@@ -21,10 +21,10 @@ class MainViewController: UIViewController {
             } //
         } //
     } //
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
         // Header/Title
@@ -44,26 +44,26 @@ class MainViewController: UIViewController {
         tableView.isHidden = self.popularMovies.isEmpty //
         activityIndicator.isHidden = !self.popularMovies.isEmpty //
         
-        tmdbService.getPopularMovies { popularMovies in
+        tmdbService.getPopularMovies(completionHandler: { popularMovies in
             self.popularMovies = popularMovies
-                
+            
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
-        }
+        }, page: 1)
         
     }
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 
 extension MainViewController: UITableViewDataSource {
@@ -79,7 +79,7 @@ extension MainViewController: UITableViewDataSource {
         
         cell.textLabel?.text = movie.original_title
         cell.detailTextLabel?.text = "\(movie.id)"
-        
+        print("\(indexPath):\(cell)")
         return cell
     }
     

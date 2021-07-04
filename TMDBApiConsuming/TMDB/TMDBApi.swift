@@ -12,12 +12,53 @@ let language: String = "en-US"
 
 struct TMDBAPI {
     
-    func requestPopularMovies(completionHandler: @escaping ([[String:Any]]) -> Void) {
+    typealias WebMovie = [String:Any]
+    
+    func requestPopularMovies(completionHandler: @escaping ([[String:Any]]) -> Void, page: Int) {
     
         // Request URL
-        let url = URL(string: "https://api.themoviedb.org/3/movie/popular?api_key=\(APIKey)&language=\(language)&page=1")!
+        let url = URL(string: "https://api.themoviedb.org/3/movie/popular?api_key=\(APIKey)&language=\(language)&page=\(page)")!
         
-        typealias WebMovie = [String:Any]
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            // Assures data and serialization
+            guard let data = data,
+                  let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any],
+                  let movieDictionary = json["results"] as? [WebMovie]
+            else {
+                completionHandler([])
+                return
+            }
+            completionHandler(movieDictionary)
+        }
+        .resume()
+        
+    }
+    
+    func requestNowPlaying(completionHandler: @escaping ([[String:Any]]) -> Void, page: Int) {
+    
+        // Request URL
+        let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=\(APIKey)&language=\(language)&page=\(page)")!
+        
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            // Assures data and serialization
+            guard let data = data,
+                  let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any],
+                  let movieDictionary = json["results"] as? [WebMovie]
+            else {
+                completionHandler([])
+                return
+            }
+            completionHandler(movieDictionary)
+        }
+        .resume()
+        
+    }
+    
+    //TO DO: QUERY
+    func requestSearch(completionHandler: @escaping ([[String:Any]]) -> Void, query: String, page: Int, include_adult: Bool) {
+    
+        // Request URL
+        let url = URL(string: "https://api.themoviedb.org/3/search/movie?api_key=\(APIKey)&language=\(language)&page=\(page)&include_adult=\(include_adult)")!
         
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             // Assures data and serialization
