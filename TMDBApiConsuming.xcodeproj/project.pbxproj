@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B49E8522269259A3009D1265 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49E8521269259A3009D1265 /* DetailViewController.swift */; };
+		B49E852526926086009D1265 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B49E852426926086009D1265 /* Detail.storyboard */; };
+		B49E852726926553009D1265 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49E852626926553009D1265 /* MainTableViewCell.swift */; };
 		B4C641B4268E3EE700526ED3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C641B3268E3EE700526ED3 /* AppDelegate.swift */; };
 		B4C641B6268E3EE700526ED3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C641B5268E3EE700526ED3 /* SceneDelegate.swift */; };
 		B4C641BB268E3EE700526ED3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4C641B9268E3EE700526ED3 /* Main.storyboard */; };
@@ -19,6 +22,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B49E8521269259A3009D1265 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		B49E852426926086009D1265 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
+		B49E852626926553009D1265 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		B4C641B0268E3EE700526ED3 /* TMDBApiConsuming.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMDBApiConsuming.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4C641B3268E3EE700526ED3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4C641B5268E3EE700526ED3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +49,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B49E852326926064009D1265 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				B49E852426926086009D1265 /* Detail.storyboard */,
+				B49E8521269259A3009D1265 /* DetailViewController.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
 		B4C641A7268E3EE700526ED3 = {
 			isa = PBXGroup;
 			children = (
@@ -65,6 +80,7 @@
 				B4C641D3268E7EC300526ED3 /* Models */,
 				B4C641CC268E44B900526ED3 /* TMDB */,
 				B4C641C9268E43A700526ED3 /* Main */,
+				B49E852326926064009D1265 /* Details */,
 				B4C641B3268E3EE700526ED3 /* AppDelegate.swift */,
 				B4C641B5268E3EE700526ED3 /* SceneDelegate.swift */,
 				B4C641BC268E3EEA00526ED3 /* Assets.xcassets */,
@@ -79,6 +95,7 @@
 			children = (
 				B4C641B9268E3EE700526ED3 /* Main.storyboard */,
 				B4C641C7268E43A300526ED3 /* MainViewController.swift */,
+				B49E852626926553009D1265 /* MainTableViewCell.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -160,6 +177,7 @@
 				B4C641C0268E3EEA00526ED3 /* LaunchScreen.storyboard in Resources */,
 				B4C641BD268E3EEA00526ED3 /* Assets.xcassets in Resources */,
 				B4C641BB268E3EE700526ED3 /* Main.storyboard in Resources */,
+				B49E852526926086009D1265 /* Detail.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,10 +190,12 @@
 			files = (
 				B4C641D0268E48F900526ED3 /* MovieModel.swift in Sources */,
 				B4C641B4268E3EE700526ED3 /* AppDelegate.swift in Sources */,
+				B49E852726926553009D1265 /* MainTableViewCell.swift in Sources */,
 				B4C641B6268E3EE700526ED3 /* SceneDelegate.swift in Sources */,
 				B4C641C8268E43A300526ED3 /* MainViewController.swift in Sources */,
 				B4C641D2268E7C0700526ED3 /* TMDBService.swift in Sources */,
 				B4C641CE268E44C900526ED3 /* TMDBApi.swift in Sources */,
+				B49E8522269259A3009D1265 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

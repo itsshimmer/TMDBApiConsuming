@@ -54,6 +54,15 @@ class MainViewController: UIViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detail", let cell = sender as? MainTableViewCell {
+//            print(segue.destination)
+            let navControl = segue.destination as? DetailViewController
+            print("\(navControl?.movie)")
+            navControl?.movie = cell.movie
+        }
+    }
+    
     /*
      // MARK: - Navigation
      
@@ -73,10 +82,11 @@ extension MainViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "basicCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "basicCell", for: indexPath) as! MainTableViewCell
         
         let movie = popularMovies[indexPath.row]
         
+        cell.movie = movie
         cell.textLabel?.text = movie.original_title
         cell.detailTextLabel?.text = "\(movie.id)"
         
