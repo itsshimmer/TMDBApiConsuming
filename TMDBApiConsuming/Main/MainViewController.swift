@@ -56,12 +56,11 @@ class MainViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detail", let cell = sender as? MainTableViewCell {
-//            print(segue.destination)
-            let navControl = segue.destination as? DetailViewController
-            print("\(navControl?.movie)")
-            navControl?.movie = cell.movie
+            let destination = segue.destination as? DetailViewController
+            destination?.movie = cell.movie
         }
     }
+    
     
     /*
      // MARK: - Navigation

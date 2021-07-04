@@ -75,4 +75,24 @@ struct TMDBAPI {
         
     }
     
+    func requestGenres(completionHandler: @escaping ([[String:Any]]) -> Void) {
+    
+        // Request URL
+        let url = URL(string: "https://api.themoviedb.org/3/genre/movie/list?api_key=\(APIKey)&language=\(language)")!
+        
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            // Assures data and serialization
+            guard let data = data,
+                  let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any],
+                  let movieDictionary = json["results"] as? [WebMovie]
+            else {
+                completionHandler([])
+                return
+            }
+            completionHandler(movieDictionary)
+        }
+        .resume()
+        
+    }
+    
 }
