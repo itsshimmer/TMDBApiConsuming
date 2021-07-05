@@ -10,26 +10,20 @@ import UIKit
 class DetailViewController: UIViewController {
     
     var movie: Movie?
-//    {
-//        didSet {
-//            detailLabel.text = movie?.overview
-//            print(movie!)
-//        }
-//    }
-
-    @IBOutlet weak var detailLabel: UILabel!
+    
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var imageView: DetailUIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        titleLabel.text = movie?.title
-        detailLabel.text = movie?.overview
-        let imageView = imageView as DetailUIImageView
-        let url: URL = URL(string: "https://image.tmdb.org/t/p/original\(movie!.poster_path)")!
-        imageView.load(url: url)
-        // Do any additional setup after loading the view.
+        guard let movie = movie else {
+            return
+        }
+        titleLabel.text = movie.original_title
+        detailLabel.text = movie.overview
+        let url: URL = URL(string: "https://image.tmdb.org/t/p/original\(movie.poster_path)")!
+        self.imageView.load(url: url)
     }
     
 

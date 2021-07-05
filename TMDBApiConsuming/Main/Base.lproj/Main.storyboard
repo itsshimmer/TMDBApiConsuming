@@ -21,14 +21,39 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="basicCell" id="RLc-db-ZJ4" customClass="MainTableViewCell" customModule="TMDBApiConsuming" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.333333969116211" width="390" height="43.666667938232422"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="basicCell" rowHeight="244" id="RLc-db-ZJ4" customClass="MainTableViewCell" customModule="TMDBApiConsuming" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="24.333333969116211" width="390" height="244"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RLc-db-ZJ4" id="eUO-vY-Sh3">
-                                            <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="244"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LBH-GO-Yct" customClass="DetailUIImageView" customModule="TMDBApiConsuming" customModuleProvider="target">
+                                                    <rect key="frame" x="36" y="16" width="79" height="212"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="118" id="AFW-Oz-pyv"/>
+                                                        <constraint firstAttribute="width" constant="79" id="pLn-xN-oFf"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OUE-yQ-Kzj">
+                                                    <rect key="frame" x="178.66666666666666" y="111.66666666666667" width="33" height="21.000000000000014"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="LBH-GO-Yct" firstAttribute="top" secondItem="eUO-vY-Sh3" secondAttribute="top" constant="16" id="3wf-eI-U1i"/>
+                                                <constraint firstAttribute="bottom" secondItem="LBH-GO-Yct" secondAttribute="bottom" constant="16" id="67T-sS-dwC"/>
+                                                <constraint firstItem="LBH-GO-Yct" firstAttribute="leading" secondItem="eUO-vY-Sh3" secondAttribute="leadingMargin" constant="16" id="9Es-QZ-Ddf"/>
+                                                <constraint firstItem="OUE-yQ-Kzj" firstAttribute="centerX" secondItem="eUO-vY-Sh3" secondAttribute="centerX" id="N4z-Te-poN"/>
+                                                <constraint firstItem="OUE-yQ-Kzj" firstAttribute="centerY" secondItem="eUO-vY-Sh3" secondAttribute="centerY" id="RRX-Gp-99r"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="cellImage" destination="LBH-GO-Yct" id="1NN-Ob-XNJ"/>
+                                            <outlet property="imageView" destination="LBH-GO-Yct" id="9D1-CN-zeT"/>
+                                            <outlet property="titleLabel" destination="OUE-yQ-Kzj" id="Nvy-1r-uiX"/>
                                             <segue destination="1fS-dO-a8Q" kind="show" identifier="detail" id="ci9-E9-ooa"/>
                                         </connections>
                                     </tableViewCell>

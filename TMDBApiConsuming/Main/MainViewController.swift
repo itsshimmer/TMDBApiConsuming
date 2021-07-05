@@ -23,10 +23,18 @@ class MainViewController: UIViewController {
         } //
     } //
     
+    var nowPlayingMovies: [Movie] = [] { //
+        didSet { //
+            DispatchQueue.main.async { //
+                self.tableView.isHidden = self.popularMovies.isEmpty //
+                self.activityIndicator.isHidden = !self.popularMovies.isEmpty //
+            } //
+        } //
+    } //
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
         
         // Header/Title
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -40,7 +48,6 @@ class MainViewController: UIViewController {
         self.navigationItem.hidesSearchBarWhenScrolling = false
         
         // Fetches data from the API to compose the screen
-        
         tableView.dataSource = self //
         tableView.isHidden = self.popularMovies.isEmpty //
         activityIndicator.isHidden = !self.popularMovies.isEmpty //
@@ -52,6 +59,16 @@ class MainViewController: UIViewController {
                 self.tableView.reloadData()
             }
         }, page: page)
+        
+        tmdbService.getNowPlaying(completionHandler: { nowPlayingMovies in
+            self.nowPlayingMovies = nowPlayingMovies
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }, page: page)
+        
+        page += 1
         
     }
     
@@ -84,43 +101,52 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "basicCell", for: indexPath) as! MainTableViewCell
         
-        let movie = popularMovies[indexPath.row]
-        
+        let movie = indexPath.section == 0 ? popularMovies[indexPath.row] : nowPlayingMovies[indexPath.row]
         cell.movie = movie
-        cell.textLabel?.text = movie.original_title
-        cell.detailTextLabel?.text = "\(movie.id)"
+        cell.titleLabel.text = movie.original_title
+//        cell.detailTextLabel?.text = "\(movie.id)"
+        let url: URL = URL(string: "https://image.tmdb.org/t/p/original\(movie.poster_path)")!
+        cell.cellImage.load(url: url)
         
         return cell
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "basicCell", for: indexPath) as! MainTableViewCell
-        
-        let movie = popularMovies[indexPath.row]
-        
-        cell.movie = movie
-        cell.textLabel?.text = movie.original_title
-        cell.detailTextLabel?.text = "\(movie.id)"
-        
-        
-        // set up cell
-        // ...
-
-        // Check if the last row number is the same as the last current data element
-        if indexPath.row == self.popularMovies.count - 1 {
-            self.loadMore()
-        }
-        return cell
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
     }
     
-    func loadMore() {
-        tmdbService.getPopularMovies(completionHandler: { popularMovies in
-            self.popularMovies.append(contentsOf: popularMovies)
-            
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }, page: page)
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        section == 0 ? "Popular Movies" : "Now Playing"
     }
+    
+//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "basicCell", for: indexPath) as! MainTableViewCell
+//
+//        let movie = popularMovies[indexPath.row]
+//
+//        cell.movie = movie
+//        cell.textLabel?.text = movie.original_title
+//        cell.detailTextLabel?.text = "\(movie.id)"
+//
+//
+//        // set up cell
+//        // ...
+//
+//        // Check if the last row number is the same as the last current data element
+//        if indexPath.row == self.popularMovies.count - 1 {
+//            self.loadMore()
+//        }
+//        return cell
+//    }
+//
+//    func loadMore() {
+//        tmdbService.getPopularMovies(completionHandler: { popularMovies in
+//            self.popularMovies.append(contentsOf: popularMovies)
+//
+//            DispatchQueue.main.async {
+//                self.tableView.reloadData()
+//            }
+//        }, page: page)
+//    }
     
 }

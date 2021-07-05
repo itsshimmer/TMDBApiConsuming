@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 let APIKey: String = "171ea8ef33bff26411439b2fe3e357c9"
 let language: String = "en-US"
@@ -13,6 +14,24 @@ let language: String = "en-US"
 struct TMDBAPI {
     
     typealias WebMovie = [String:Any]
+    
+    func requestMoviePoster(completionHandler: @escaping (UIImage) -> Void, poster_path: String) {
+        
+        // Request URL
+        let url: URL = URL(string: "https://image.tmdb.org/t/p/original\(poster_path)")!
+        
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            // Assures data and image
+            guard let data = try? Data(contentsOf: url),
+                  let image = UIImage(data: data)
+            else {
+                completionHandler(UIImage())
+                return
+            }
+            completionHandler(image)
+        }
+        .resume()
+    }
     
     func requestPopularMovies(completionHandler: @escaping ([[String:Any]]) -> Void, page: Int) {
     
