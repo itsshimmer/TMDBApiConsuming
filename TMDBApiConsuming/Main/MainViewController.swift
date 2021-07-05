@@ -13,6 +13,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     let tmdbService: TMDBService = TMDBService()
+    var page: Int = 1
     var popularMovies: [Movie] = [] { //
         didSet { //
             DispatchQueue.main.async { //
@@ -50,7 +51,7 @@ class MainViewController: UIViewController {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
-        }, page: 1)
+        }, page: page)
         
     }
     
@@ -90,6 +91,36 @@ extension MainViewController: UITableViewDataSource {
         cell.detailTextLabel?.text = "\(movie.id)"
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "basicCell", for: indexPath) as! MainTableViewCell
+        
+        let movie = popularMovies[indexPath.row]
+        
+        cell.movie = movie
+        cell.textLabel?.text = movie.original_title
+        cell.detailTextLabel?.text = "\(movie.id)"
+        
+        
+        // set up cell
+        // ...
+
+        // Check if the last row number is the same as the last current data element
+        if indexPath.row == self.popularMovies.count - 1 {
+            self.loadMore()
+        }
+        return cell
+    }
+    
+    func loadMore() {
+        tmdbService.getPopularMovies(completionHandler: { popularMovies in
+            self.popularMovies.append(contentsOf: popularMovies)
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }, page: page)
     }
     
 }
