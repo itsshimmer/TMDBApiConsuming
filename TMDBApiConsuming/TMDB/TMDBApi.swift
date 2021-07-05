@@ -18,7 +18,6 @@ struct TMDBAPI {
     
         // Request URL
         let url = URL(string: "https://api.themoviedb.org/3/movie/popular?api_key=\(APIKey)&language=\(language)&page=\(page)")!
-        
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             // Assures data and serialization
             guard let data = data,

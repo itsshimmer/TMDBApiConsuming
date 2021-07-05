@@ -19,6 +19,7 @@
 		B4C641CE268E44C900526ED3 /* TMDBApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C641CD268E44C900526ED3 /* TMDBApi.swift */; };
 		B4C641D0268E48F900526ED3 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C641CF268E48F900526ED3 /* MovieModel.swift */; };
 		B4C641D2268E7C0700526ED3 /* TMDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C641D1268E7C0700526ED3 /* TMDBService.swift */; };
+		B4EBF68B26934F180082431B /* DetailUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EBF68A26934F180082431B /* DetailUIImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		B4C641CD268E44C900526ED3 /* TMDBApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBApi.swift; sourceTree = "<group>"; };
 		B4C641CF268E48F900526ED3 /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 		B4C641D1268E7C0700526ED3 /* TMDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBService.swift; sourceTree = "<group>"; };
+		B4EBF68A26934F180082431B /* DetailUIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUIImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			children = (
 				B49E852426926086009D1265 /* Detail.storyboard */,
 				B49E8521269259A3009D1265 /* DetailViewController.swift */,
+				B4EBF68A26934F180082431B /* DetailUIImageView.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 			files = (
 				B4C641D0268E48F900526ED3 /* MovieModel.swift in Sources */,
 				B4C641B4268E3EE700526ED3 /* AppDelegate.swift in Sources */,
+				B4EBF68B26934F180082431B /* DetailUIImageView.swift in Sources */,
 				B49E852726926553009D1265 /* MainTableViewCell.swift in Sources */,
 				B4C641B6268E3EE700526ED3 /* SceneDelegate.swift in Sources */,
 				B4C641C8268E43A300526ED3 /* MainViewController.swift in Sources */,

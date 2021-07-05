@@ -19,12 +19,16 @@ class DetailViewController: UIViewController {
 
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var imageView: DetailUIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         titleLabel.text = movie?.title
         detailLabel.text = movie?.overview
+        let imageView = imageView as DetailUIImageView
+        let url: URL = URL(string: "https://image.tmdb.org/t/p/original\(movie!.poster_path)")!
+        imageView.load(url: url)
         // Do any additional setup after loading the view.
     }
     
