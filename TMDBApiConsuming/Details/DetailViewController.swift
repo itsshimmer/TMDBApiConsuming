@@ -18,9 +18,12 @@ class DetailViewController: UIViewController {
 //    }
 
     @IBOutlet weak var detailLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        titleLabel.text = movie?.title
         detailLabel.text = movie?.overview
         // Do any additional setup after loading the view.
     }
