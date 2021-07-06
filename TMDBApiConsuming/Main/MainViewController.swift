@@ -70,6 +70,10 @@ class MainViewController: UIViewController {
         
         page += 1
         
+        // Table view tweaks
+        tableView.estimatedRowHeight = 120.0;
+        tableView.rowHeight = UITableView.automaticDimension;
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -100,13 +104,13 @@ extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "basicCell", for: indexPath) as! MainTableViewCell
-        
         let movie = indexPath.section == 0 ? popularMovies[indexPath.row] : nowPlayingMovies[indexPath.row]
         cell.movie = movie
         cell.titleLabel.text = movie.original_title
 //        cell.detailTextLabel?.text = "\(movie.id)"
-        let url: URL = URL(string: "https://image.tmdb.org/t/p/original\(movie.poster_path)")!
-        cell.cellImage.load(url: url)
+//        let url: URL = URL(string: "https://image.tmdb.org/t/p/original\(movie.poster_path)")!
+//        cell.cellImage.load(url: url)
+        cell.cellImage.image = movie.poster
         
         return cell
     }
@@ -118,35 +122,5 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         section == 0 ? "Popular Movies" : "Now Playing"
     }
-    
-//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "basicCell", for: indexPath) as! MainTableViewCell
-//
-//        let movie = popularMovies[indexPath.row]
-//
-//        cell.movie = movie
-//        cell.textLabel?.text = movie.original_title
-//        cell.detailTextLabel?.text = "\(movie.id)"
-//
-//
-//        // set up cell
-//        // ...
-//
-//        // Check if the last row number is the same as the last current data element
-//        if indexPath.row == self.popularMovies.count - 1 {
-//            self.loadMore()
-//        }
-//        return cell
-//    }
-//
-//    func loadMore() {
-//        tmdbService.getPopularMovies(completionHandler: { popularMovies in
-//            self.popularMovies.append(contentsOf: popularMovies)
-//
-//            DispatchQueue.main.async {
-//                self.tableView.reloadData()
-//            }
-//        }, page: page)
-//    }
     
 }

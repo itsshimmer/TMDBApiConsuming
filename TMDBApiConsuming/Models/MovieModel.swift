@@ -6,7 +6,7 @@
 //
 
 import Foundation
-//import UIKit
+import UIKit
 
 struct Movie {
     let adult: Bool
@@ -23,12 +23,12 @@ struct Movie {
     let video: Bool
     let vote_average: Double
     let vote_count: Int
-//    var poster: UIImage?
+    var poster: UIImage? // is populated later in TMDBService.swift
 }
 
 struct MovieParser {
     
-//    let tmdbApi: TMDBAPI = TMDBAPI()
+    let tmdbApi: TMDBAPI = TMDBAPI()
     
     func parseMovieDictionary(dictionary: [String: Any]) -> Movie? {
         guard let adult = dictionary["adult"] as? Bool,
@@ -49,12 +49,15 @@ struct MovieParser {
             return nil
         }
         
-//        tmdbApi.requestMoviePoster(completionHandler: { result in
-//            let poster = result
-//        }, poster_path: poster_path)
-
-        return Movie(adult: adult, backdrop_path: backdrop_path, genre_ids: genre_ids, id: id, original_language: original_language, original_title: original_title, overview: overview, popularity: popularity, poster_path: poster_path, release_date: release_date, title: title, video: video, vote_average: vote_average, vote_count: vote_count)
+        var movie: Movie = Movie(adult: adult, backdrop_path: backdrop_path, genre_ids: genre_ids, id: id, original_language: original_language, original_title: original_title, overview: overview, popularity: popularity, poster_path: poster_path, release_date: release_date, title: title, video: video, vote_average: vote_average, vote_count: vote_count)
         
+        DispatchQueue.main.async {
+            tmdbApi.requestMoviePoster(completionHandler: { result in
+                movie.poster = result
+            }, poster_path: poster_path)
+        }
+        
+        return movie
         
     }
     
